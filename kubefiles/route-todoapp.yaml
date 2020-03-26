@@ -1,33 +1,17 @@
-﻿kind: Route
+kind: Route
 apiVersion: route.openshift.io/v1
 metadata:
-  name: todoapp
-  namespace: gitopsdemo
-  selfLink: /apis/route.openshift.io/v1/namespaces/gitopsdemo/routes/todoapp
-  uid: 526cc681-a2c2-474e-9748-bc261f064967
-  resourceVersion: '629734'
-  creationTimestamp: '2020-03-25T13:15:26Z'
+  name: todoapproute
   labels:
     app: todo
     app.kubernetes.io/instance: todoapp
   annotations:
     openshift.io/host.generated: 'true'
 spec:
-  host: todoapp-gitopsdemo.apps.ocpdemo.sandbox890.opentlc.com
   to:
     kind: Service
-    name: my
+    name: jaysonmy
     weight: 100
   port:
     targetPort: http
   wildcardPolicy: None
-status:
-  ingress:
-    - host: todoapp-gitopsdemo.apps.ocpdemo.sandbox890.opentlc.com
-      routerName: default
-      conditions:
-        - type: Admitted
-          status: 'True'
-          lastTransitionTime: '2020-03-25T13:15:26Z'
-      wildcardPolicy: None
-      routerCanonicalHostname: apps.ocpdemo.sandbox890.opentlc.com
